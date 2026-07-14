@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -21,31 +21,16 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
                     },
                     colors: {
-                        mystic: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            200: '#ddd6fe',
-                            300: '#c4b5fd',
-                            400: '#a78bfa',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            700: '#6d28d9',
-                            800: '#5b21b6',
-                            900: '#0f172a', 
-                            950: '#020617',
-                        },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                        },
-                        /* The dedicated CTA Button Color - Never used anywhere else */
-                        action: {
-                            500: '#10b981', /* Emerald 500 */
-                            600: '#059669', /* Emerald 600 */
+                        temple: {
+                            gold: '#a98a66',
+                            black: '#000000',
+                            white: '#ffffff',
+                            gray: '#f9f9f9', // subtle off-white for section contrast
+                            darkgray: '#333333'
                         }
                     }
                 }
@@ -54,13 +39,11 @@
     </script>
     <style>
         body {
-            background-color: theme('colors.mystic.950');
-            color: theme('colors.slate.300');
+            background-color: #ffffff;
+            color: #000000;
         }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .gold-border {
+            border-color: #a98a66;
         }
         .faq-content {
             max-height: 0;
@@ -78,30 +61,25 @@
         .open .icon-rotate {
             transform: rotate(180deg);
         }
-        .gradient-text {
-            background: linear-gradient(to right, theme('colors.gold.400'), theme('colors.white'));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
 </head>
-<body class="antialiased selection:bg-action-500 selection:text-white">
+<body class="antialiased selection:bg-temple-gold selection:text-temple-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-panel border-b-0">
+    <nav class="sticky top-0 w-full z-50 bg-temple-white border-b gold-border shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <i class="ph-fill ph-diamond text-gold-400 text-3xl"></i>
-                    <span class="font-serif text-white text-xl tracking-wider font-semibold">AI FOR TEMPLES</span>
+                    <i class="ph-fill ph-diamond text-temple-gold text-3xl"></i>
+                    <span class="font-serif text-temple-black text-xl tracking-widest font-bold uppercase">2 Witnesses</span>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#problem" class="text-sm font-medium hover:text-white transition-colors">The Problem</a>
-                    <a href="#benefits" class="text-sm font-medium hover:text-white transition-colors">Benefits</a>
-                    <a href="#process" class="text-sm font-medium hover:text-white transition-colors">How It Works</a>
-                    <a href="#faq" class="text-sm font-medium hover:text-white transition-colors">FAQs</a>
-                    <a href="#contact" class="px-5 py-2.5 bg-action-500 hover:bg-action-600 text-white font-semibold rounded-lg transition-all shadow-lg shadow-action-500/20">
-                        Book Your Strategy Session
+                    <a href="#package" class="text-sm font-bold uppercase tracking-wider hover:text-temple-gold transition-colors">The Package</a>
+                    <a href="#workflows" class="text-sm font-bold uppercase tracking-wider hover:text-temple-gold transition-colors">Workflows</a>
+                    <a href="#features" class="text-sm font-bold uppercase tracking-wider hover:text-temple-gold transition-colors">Features</a>
+                    <a href="#faq" class="text-sm font-bold uppercase tracking-wider hover:text-temple-gold transition-colors">FAQs</a>
+                    <a href="#contact" class="px-6 py-2 bg-temple-black text-temple-white hover:bg-temple-gold font-bold uppercase tracking-wider text-sm transition-colors border border-temple-black">
+                        Get Started
                     </a>
                 </div>
             </div>
@@ -109,355 +87,340 @@
     </nav>
 
     <main>
-        <!-- Hero Section (Stop Problem, Start Outcome) -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-mystic-800">
-            <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-mystic-800/30 via-mystic-950 to-mystic-950"></div>
-            </div>
-            
-            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-                    Stop Losing Seekers. <br class="hidden md:block">
-                    Start Building an <span class="gradient-text">Always-On Sanctuary.</span>
+        <!-- Hero Section -->
+        <section class="py-20 lg:py-32 bg-temple-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-temple-black mb-8 leading-tight">
+                    Turn Every Inquiry into a Connection with an <span class="text-temple-gold">AI Workforce</span>
                 </h1>
                 
-                <p class="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-slate-400 mb-10">
-                    We deploy custom AI Workforce systems for spiritual and wellness guides to instantly engage inquiries, answer deep frequency questions, and book consultations—so you can focus entirely on the craft.
+                <p class="text-lg md:text-xl text-temple-darkgray mb-6 leading-relaxed">
+                    In spiritual and wellness guidance, speed and trust build lasting relationships. Nearly half of all inquiries go unanswered, and most seekers choose the first guide who responds—making instant follow-up essential. Credibility is just as crucial. You need strong reviews, consistent visibility, and content that positions you as a true authority.
+                </p>
+                <p class="text-lg md:text-xl text-temple-darkgray mb-10 leading-relaxed">
+                    This package keeps 2 Witnesses Jewel Temple responsive 24/7, even when you're in deep practice, and boosts visibility with top search rankings, glowing reviews, and an active online presence. With support from your AI Workforce handling inquiries, reminders, emails, and promotions, you get more consultations and devoted followers.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="#contact" class="px-8 py-4 bg-action-500 hover:bg-action-600 text-white font-semibold rounded-lg text-lg transition-all transform hover:-translate-y-1 shadow-lg shadow-action-500/30 w-full sm:w-auto">
-                        Schedule Your AI Strategy Session
-                    </a>
-                </div>
-
-                <!-- 3 Positive Outcomes -->
-                <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-12 text-sm font-medium text-slate-300">
-                    <div class="flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
-                        <span>Never miss an inquiry again</span>
-                    </div>
-                    <div class="flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
-                        <span>Reclaim 15+ hours every week</span>
-                    </div>
-                    <div class="flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
-                        <span>Automated nurturing & follow-ups</span>
-                    </div>
-                </div>
-
-                <!-- Social Proof -->
-                <p class="mt-12 text-sm text-slate-500 font-medium tracking-wide uppercase">
-                    Trusted to handle over 10,000+ seeker conversations nationwide
-                </p>
+                <a href="#package" class="inline-block px-10 py-4 bg-temple-gold text-temple-white font-bold uppercase tracking-wider text-lg hover:bg-temple-black transition-colors">
+                    Explore the Package
+                </a>
             </div>
         </section>
 
-        <!-- The Problem Section (The Big Bad) -->
-        <section id="problem" class="py-24 bg-mystic-900 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-                    What are your missed connections really costing you?
-                </h2>
-                <div class="space-y-6 text-lg text-slate-400 text-left md:text-center">
-                    <p>
-                        When a seeker reaches out to 2 Witnesses Jewel Temple with profound questions about electromagnetism, religious science, or frequency, they need guidance <em>in that exact moment</em>. 
-                    </p>
-                    <p>
-                        But you are in deep practice, conducting a consultation, or simply resting. By the time you respond the next day, that spark of curiosity has often faded. 
-                    </p>
-                    <p class="text-white font-medium">
-                        Missed messages, scattered reviews, and silent follow-ups don't just cost you consultations—they cost you the chance to share your wisdom with the people who need it most.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Solution / Mentor Section -->
-        <section class="py-24 relative border-t border-mystic-800">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl"></div>
-                    
-                    <h2 class="text-3xl font-serif font-bold text-white mb-6 relative z-10">
-                        We help spiritual guides scale their impact without sacrificing their peace.
-                    </h2>
-                    
-                    <div class="space-y-6 text-slate-300 relative z-10">
-                        <p>
-                            We know exactly what it feels like to be torn between serving the seekers in front of you and managing the digital inquiries of new ones. It’s overwhelming to be the practitioner, the receptionist, and the marketer all at once.
-                        </p>
-                        <p>
-                            We've built and deployed specialized AI Workforces that act as a 24/7 digital extension of esoteric and wellness brands. Our systems have successfully automated lead qualification, booking, and spiritual nurturing for countless practices.
-                        </p>
-                        <p class="text-gold-400 font-semibold text-lg">
-                            We can create that same effortless, always-on connection for your temple.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3D Benefits Section -->
-        <section id="benefits" class="py-24 bg-mystic-900">
+        <!-- What's in the Package -->
+        <section id="package" class="py-20 bg-temple-gray border-t border-b border-temple-gold/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">The Benefits of an AI Temple Guardian</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-temple-black">What's In The Package</h2>
+                    <div class="w-24 h-1 bg-temple-gold mx-auto mt-6"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Benefit 1 -->
-                    <div class="bg-mystic-950 p-8 rounded-2xl border border-mystic-800">
-                        <div class="w-12 h-12 bg-mystic-800 rounded-lg flex items-center justify-center mb-6">
-                            <i class="ph-fill ph-clock text-2xl text-gold-400"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Conversations AI -->
+                    <div class="bg-temple-white p-8 border border-gray-200 shadow-sm hover:border-temple-gold transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph ph-chats text-4xl text-temple-gold"></i>
+                            <h3 class="text-2xl font-serif font-bold">Conversations AI Premium</h3>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Never Miss a Seeker Again</h3>
-                        <p class="text-sm font-medium text-gold-400 mb-4">Feature: Conversations AI Premium</p>
-                        <p class="text-slate-400">
-                            Our AI responds instantly across web chat, SMS, and social DMs to answer FAQs and book appointments... <strong class="text-white font-medium">which means your temple is always open, capturing connections while you sleep or teach.</strong>
-                        </p>
+                        <p class="mb-6 text-temple-darkgray">Beyond a 24/7 AI Receptionist who captures leads automatically, deploy specialized roles—such as an AI Support Agent for instant FAQs on electromagnetism and frequency, or an AI Data Analyst.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-temple-black font-bold uppercase text-sm tracking-wider">Problem:</strong>
+                                <p class="text-temple-darkgray mt-1">Inquiries arrive after hours or while you are busy, leading to slow follow-up or missed opportunities to guide a seeker.</p>
+                            </div>
+                            <div>
+                                <strong class="text-temple-gold font-bold uppercase text-sm tracking-wider">Solution:</strong>
+                                <p class="text-temple-darkgray mt-1">AI responds instantly via chat, call, or text—qualifying leads, booking consultations, handling inquiries, and logging to the CRM, even outside business hours.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Benefit 2 -->
-                    <div class="bg-mystic-950 p-8 rounded-2xl border border-mystic-800">
-                        <div class="w-12 h-12 bg-mystic-800 rounded-lg flex items-center justify-center mb-6">
-                            <i class="ph-fill ph-star text-2xl text-gold-400"></i>
+                    <!-- Reputation AI -->
+                    <div class="bg-temple-white p-8 border border-gray-200 shadow-sm hover:border-temple-gold transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph ph-star text-4xl text-temple-gold"></i>
+                            <h3 class="text-2xl font-serif font-bold">Reputation AI Premium</h3>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Build a Legacy of Trust</h3>
-                        <p class="text-sm font-medium text-gold-400 mb-4">Feature: Reputation AI & Local SEO Pro</p>
-                        <p class="text-slate-400">
-                            Automatically requests reviews after successful consultations and syncs your temple's directory listings... <strong class="text-white font-medium">which means transformational stories are shared effortlessly, cementing your authority online.</strong>
-                        </p>
+                        <p class="mb-6 text-temple-darkgray">Meet your AI Reputation Specialist for automated review responses and chat-based insights to elevate your temple's standing.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-temple-black font-bold uppercase text-sm tracking-wider">Problem:</strong>
+                                <p class="text-temple-darkgray mt-1">Scattered reviews and missed requests make it hard to build a strong authoritative brand.</p>
+                            </div>
+                            <div>
+                                <strong class="text-temple-gold font-bold uppercase text-sm tracking-wider">Solution:</strong>
+                                <p class="text-temple-darkgray mt-1">Aggregates reviews across platforms. Sends automated post-consultation requests and delivers reputation-safe replies to boost credibility and visibility.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Benefit 3 -->
-                    <div class="bg-mystic-950 p-8 rounded-2xl border border-mystic-800">
-                        <div class="w-12 h-12 bg-mystic-800 rounded-lg flex items-center justify-center mb-6">
-                            <i class="ph-fill ph-plant text-2xl text-gold-400"></i>
+                    <!-- Social Marketing -->
+                    <div class="bg-temple-white p-8 border border-gray-200 shadow-sm hover:border-temple-gold transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph ph-share-network text-4xl text-temple-gold"></i>
+                            <h3 class="text-2xl font-serif font-bold">Social Marketing</h3>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Nurture on Autopilot</h3>
-                        <p class="text-sm font-medium text-gold-400 mb-4">Feature: Campaign Pro Workflows</p>
-                        <p class="text-slate-400">
-                            Places curious visitors into automated drip campaigns sharing insights on vibration and immortality... <strong class="text-white font-medium">which means every inquiry is gently guided, turning curious visitors into lifelong followers.</strong>
-                        </p>
+                        <p class="mb-6 text-temple-darkgray">Meet your AI Content Creator to share teachings, insights, and updates that inspire more followers.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-temple-black font-bold uppercase text-sm tracking-wider">Problem:</strong>
+                                <p class="text-temple-darkgray mt-1">Practitioners struggle to maintain a steady stream of content, making it harder to stay visible on social media.</p>
+                            </div>
+                            <div>
+                                <strong class="text-temple-gold font-bold uppercase text-sm tracking-wider">Solution:</strong>
+                                <p class="text-temple-darkgray mt-1">AI creates and schedules professional posts (client success stories, esoteric insights, temple updates) across multiple platforms in minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Local SEO -->
+                    <div class="bg-temple-white p-8 border border-gray-200 shadow-sm hover:border-temple-gold transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph ph-map-pin text-4xl text-temple-gold"></i>
+                            <h3 class="text-2xl font-serif font-bold">Local SEO & Listing Sync</h3>
+                        </div>
+                        <p class="mb-6 text-temple-darkgray">Ensure seekers can easily find your physical or digital temple through optimized local search presence.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-temple-black font-bold uppercase text-sm tracking-wider">Problem:</strong>
+                                <p class="text-temple-darkgray mt-1">Inaccurate or inconsistent business listings across directories reduce search visibility and confuse potential seekers.</p>
+                            </div>
+                            <div>
+                                <strong class="text-temple-gold font-bold uppercase text-sm tracking-wider">Solution:</strong>
+                                <p class="text-temple-darkgray mt-1">Sync and manage information across platforms in real time, building new citations on high-authority sites to boost rankings.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Pro -->
+                    <div class="bg-temple-white p-8 border border-gray-200 shadow-sm hover:border-temple-gold transition-colors md:col-span-2 max-w-4xl mx-auto w-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph ph-envelope-open text-4xl text-temple-gold"></i>
+                            <h3 class="text-2xl font-serif font-bold">Campaign Pro</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <strong class="text-temple-black font-bold uppercase text-sm tracking-wider">Problem:</strong>
+                                <p class="text-temple-darkgray mt-1">Manual lead nurturing is time-consuming and inquiries often go cold without consistent, meaningful outreach.</p>
+                            </div>
+                            <div>
+                                <strong class="text-temple-gold font-bold uppercase text-sm tracking-wider">Solution:</strong>
+                                <p class="text-temple-darkgray mt-1">Automates drip campaigns (e.g., spiritual tips, renewal reminders, advanced course offers) with AI-personalized emails/SMS triggered by CRM activity.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3-Step Process Plan -->
-        <section id="process" class="py-24 border-t border-mystic-800 relative">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Workflows Section -->
+        <section id="workflows" class="py-20 bg-temple-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Your Path to Total Automation</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-temple-black">AI-Powered Workflows</h2>
+                    <p class="mt-4 text-temple-darkgray text-lg max-w-3xl mx-auto">Turn leads into loyal followers. Explore five automation templates you can easily customize to help you follow up fast, stay top of mind, and turn every inquiry into a lasting relationship.</p>
+                    <div class="w-24 h-1 bg-temple-gold mx-auto mt-6"></div>
                 </div>
 
-                <div class="space-y-12">
-                    <!-- Step 1 -->
-                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-mystic-800 border-2 border-gold-400 flex items-center justify-center text-2xl font-bold text-white">1</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Schedule Your Strategy Session</h3>
-                            <p class="text-slate-400 text-lg">
-                                We'll hop on a quick call to understand your specific teachings and operational bottlenecks, <strong class="text-gold-400">mapping out exactly how an AI workforce will serve your temple's unique needs.</strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-mystic-800 border-2 border-gold-400 flex items-center justify-center text-2xl font-bold text-white">2</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2">We Custom-Train Your AI</h3>
-                            <p class="text-slate-400 text-lg">
-                                We handle 100% of the setup. We program the AI with your FAQs, your tone of voice, and your consultation calendar, <strong class="text-gold-400">ensuring the digital assistant speaks with your authentic wisdom.</strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-action-500 border-2 border-action-400 flex items-center justify-center text-2xl font-bold text-white">3</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Experience Ultimate Freedom</h3>
-                            <p class="text-slate-400 text-lg">
-                                We flip the switch and your AI goes live. <strong class="text-action-500">Enjoy a fully booked calendar, instant lead responses, and a thriving digital sanctuary with zero technical headaches.</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-16 text-center">
-                    <a href="#contact" class="inline-block px-8 py-4 bg-action-500 hover:bg-action-600 text-white font-semibold rounded-lg text-lg transition-all shadow-lg shadow-action-500/30">
-                        Start Step 1 Right Now
-                    </a>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-gray-200">
+                        <thead>
+                            <tr class="bg-temple-black text-temple-white">
+                                <th class="p-4 font-bold uppercase tracking-wider text-sm border-b border-temple-black">Stage</th>
+                                <th class="p-4 font-bold uppercase tracking-wider text-sm border-b border-temple-black">Scenario</th>
+                                <th class="p-4 font-bold uppercase tracking-wider text-sm border-b border-temple-black">Customization Tips</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-temple-darkgray">
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-4 font-serif font-bold text-temple-black">Attract</td>
+                                <td class="p-4"><strong>AI-generated follow-up for web chat:</strong> A prospective seeker submits a question at 8pm. Even if unavailable, they get a personalized response instantly.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc ml-4 space-y-2">
+                                        <li>Update AI prompt for use cases like session bookings or esoteric inquiries.</li>
+                                        <li><em>Example: "Thanks for reaching out about [topic]! I'd love to help — would you like to schedule a call?"</em></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-4 font-serif font-bold text-temple-black">Convert & Engage</td>
+                                <td class="p-4"><strong>Engage web chat leads:</strong> A lead reaches out and receives confirmation by SMS/email. CRM logs contact, and task is created to follow up.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc ml-4 space-y-2">
+                                        <li>Tag by inquiry type ("Consultation Request", "Course Inquiry").</li>
+                                        <li>Customize task title: "Follow up to book appointment with [Name]".</li>
+                                        <li>Adjust reminder timing (e.g., within 4 hours).</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-4 font-serif font-bold text-temple-black">Retain</td>
+                                <td class="p-4"><strong>Add to marketing campaign:</strong> A lead that didn't convert immediately is added to an automated email series with teachings or event updates.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc ml-4 space-y-2">
+                                        <li>Choose campaigns like "Weekly Temple Updates" or "Frequency Tips".</li>
+                                        <li>Add tags like "Warm Lead" or "First-Time Seeker".</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-4 font-serif font-bold text-temple-black">Nurture</td>
+                                <td class="p-4"><strong>Lead follow-up:</strong> A lead receives pricing or info but hasn't responded. Three days later, they get a warm follow-up.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc ml-4 space-y-2">
+                                        <li>Trigger when moved to "Info Sent".</li>
+                                        <li><em>Example: "Hi [Name], just checking in — happy to answer any questions. Ready when you are!"</em></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-4 font-serif font-bold text-temple-black">Reputation</td>
+                                <td class="p-4"><strong>Automatically request reviews:</strong> After completing a consultation, the client receives a review request with a thank-you.</td>
+                                <td class="p-4">
+                                    <ul class="list-disc ml-4 space-y-2">
+                                        <li>Trigger on tasks like "Session Complete".</li>
+                                        <li><em>Example: "It was a pleasure guiding you. We'd really appreciate your feedback: [link]"</em></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials / Success Stories -->
-        <section class="py-24 bg-mystic-900 border-t border-mystic-800">
+        <!-- Capture More Leads / Features -->
+        <section id="features" class="py-20 bg-temple-black text-temple-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Results Speak for Themselves</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-temple-gold">Engage Customers 24/7</h2>
+                    <p class="mt-4 text-gray-300 text-lg max-w-3xl mx-auto">Conversations AI is your always-on voice and messaging assistant, built to connect across phone calls, chat, SMS, WhatsApp, email, and more.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Review 1 (Objection Buster: Time) -->
-                    <div class="glass-panel p-8 rounded-2xl">
-                        <div class="flex text-gold-400 mb-4">
-                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white mb-3">"Reclaimed 15 Hours a Week"</h4>
-                        <p class="text-sm text-slate-400 italic mb-6">
-                            "I was skeptical that AI could handle deep, spiritual inquiries. But it qualifies my leads perfectly and schedules them without me lifting a finger. I've gotten my time back to actually teach."
-                        </p>
-                        <p class="text-sm font-semibold text-slate-300">- Marcus T., Wellness Guide</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-device-mobile text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">Answer phone calls, web chats, texts, WhatsApp, emails, and direct messages from Facebook/Instagram so you never miss a lead.</p>
                     </div>
-
-                    <!-- Review 2 (Result Showcaser) -->
-                    <div class="glass-panel p-8 rounded-2xl">
-                        <div class="flex text-gold-400 mb-4">
-                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white mb-3">"Consultations Doubled"</h4>
-                        <p class="text-sm text-slate-400 italic mb-6">
-                            "Since turning on the 24/7 web chat, we capture so many people browsing our site late at night. The AI answers their basics and books the call. Our calendar has never been this full."
-                        </p>
-                        <p class="text-sm font-semibold text-slate-300">- Sarah L., Holistic Clinic Director</p>
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-calendar-plus text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">Enables an AI Receptionist to book appointments, answer questions, and collect info even after business hours.</p>
                     </div>
-
-                    <!-- Review 3 (Objection Buster: Authenticity) -->
-                    <div class="glass-panel p-8 rounded-2xl">
-                        <div class="flex text-gold-400 mb-4">
-                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white mb-3">"Perfectly Captures My Voice"</h4>
-                        <p class="text-sm text-slate-400 italic mb-6">
-                            "My biggest fear was sounding like a corporate robot. The team trained the AI on my actual philosophies. My clients think they are talking to my personal assistant. It's brilliant."
-                        </p>
-                        <p class="text-sm font-semibold text-slate-300">- Dr. Elena R., Energy Practitioner</p>
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-phone-disconnect text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">Send a text automatically when a call is missed to help recover lost opportunities.</p>
+                    </div>
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-brain text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">Teach the AI about your teachings so it gives accurate answers and checks availability intelligently.</p>
+                    </div>
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-inbox text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">See all customer conversations in one unified inbox (phone, SMS, chat, WhatsApp, Facebook, Instagram, email).</p>
+                    </div>
+                    <div class="border border-temple-gold/30 p-6 flex gap-4">
+                        <i class="ph ph-translate text-3xl text-temple-gold flex-shrink-0"></i>
+                        <p class="text-sm">AI can reply in multiple languages with fast, consistent answers to build trust with a diverse audience.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQs (Objection Busters) -->
-        <section id="faq" class="py-24 border-t border-mystic-800">
+        <!-- FAQs -->
+        <section id="faq" class="py-20 bg-temple-gray">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl font-serif font-bold text-white mb-4">Frequently Asked Questions</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-temple-black">Frequently Asked Questions</h2>
+                    <div class="w-24 h-1 bg-temple-gold mx-auto mt-6"></div>
                 </div>
 
                 <div class="space-y-4" id="accordion-container">
-                    <div class="bg-mystic-900 rounded-xl overflow-hidden border border-mystic-800">
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
                         <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-medium text-white text-left">Will the AI give incorrect spiritual advice?</span>
-                            <i class="ph ph-caret-down text-gold-400 icon-rotate"></i>
+                            <span class="font-bold text-temple-black text-left font-serif">Which Conversations AI edition is right for my business?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
                         </button>
-                        <div class="faq-content px-6 bg-mystic-950 text-sm text-slate-400">
-                            <p class="pb-4">No. The AI is strictly 'fenced' to only use the knowledge base we provide it. We train it on your specific FAQs, teachings, and boundaries. If a question is too deep or outside its training, it gracefully routes the conversation directly to you to schedule a consultation.</p>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">
+                                Choose <strong>Standard</strong> if WhatsApp, Facebook, and Instagram and web chat are your main communication channels. (Available worldwide)<br><br>
+                                Go with <strong>Pro</strong> if you need SMS support. (Available only in the U.S. and Canada)<br><br>
+                                Upgrade to <strong>Premium</strong> if you handle voice calls and want full AI receptionist functionality across chat, SMS, and phone. (Available only in the U.S. and Canada)
+                            </p>
                         </div>
                     </div>
 
-                    <div class="bg-mystic-900 rounded-xl overflow-hidden border border-mystic-800">
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
                         <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-medium text-white text-left">Is this difficult to set up or manage?</span>
-                            <i class="ph ph-caret-down text-gold-400 icon-rotate"></i>
+                            <span class="font-bold text-temple-black text-left font-serif">How does Conversations AI respond to customer inquiries?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
                         </button>
-                        <div class="faq-content px-6 bg-mystic-950 text-sm text-slate-400">
-                            <p class="pb-4">Not at all, because we do it all for you. You don't need any technical skills. We handle the integration with your website, social media, and calendar. You simply download our app to see all your new booked appointments and conversations in one place.</p>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">Conversations AI uses advanced chat and voice AI to answer customer questions instantly, drawing from custom knowledge about your business, such as hours, services, and FAQs, so responses are fast, accurate, and personalized.</p>
                         </div>
                     </div>
 
-                    <div class="bg-mystic-900 rounded-xl overflow-hidden border border-mystic-800">
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
                         <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-medium text-white text-left">Can the AI understand different accents or languages?</span>
-                            <i class="ph ph-caret-down text-gold-400 icon-rotate"></i>
+                            <span class="font-bold text-temple-black text-left font-serif">Can it understand different languages or regional accents?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
                         </button>
-                        <div class="faq-content px-6 bg-mystic-950 text-sm text-slate-400">
-                            <p class="pb-4">Yes! Conversations AI supports multilingual text and voice interactions and is trained to understand diverse accents, allowing you to connect effectively with a global audience seeking your guidance.</p>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">Yes! Conversations AI supports multilingual Conversations and is trained to understand a variety of accents, helping you connect with a broader audience effectively.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
+                        <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-temple-black text-left font-serif">What countries can use SMS messaging?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
+                        </button>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">Currently, businesses located in United States and Canada can use SMS messaging. Businesses located in other countries can use web chat, email, Facebook chat or Instagram chat.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
+                        <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-temple-black text-left font-serif">Can the AI receptionist reply to post comments?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
+                        </button>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">No, this is just for direct messages between customers and a business page.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-temple-white border border-gray-200 shadow-sm">
+                        <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-temple-black text-left font-serif">Can a business connect a personal account?</span>
+                            <i class="ph ph-caret-down text-temple-gold icon-rotate text-xl"></i>
+                        </button>
+                        <div class="faq-content px-6 bg-temple-white text-temple-darkgray border-t border-gray-100">
+                            <p class="pb-4">No, they need a Business Instagram account or a Facebook Page to integrate the AI.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Lead Magnet Opt-In (Future Client Generator) -->
-        <section class="py-24 bg-mystic-900 border-t border-mystic-800 relative overflow-hidden">
-            <div class="absolute right-0 top-0 w-1/3 h-full bg-mystic-800/20 skew-x-12 transform origin-top hidden lg:block"></div>
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span class="text-gold-400 font-semibold tracking-wider text-sm uppercase mb-2 block">Free Blueprint</span>
-                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-                            The Digital Sanctuary Blueprint: 5 AI Automations Every Spiritual Guide Needs
-                        </h2>
-                        <p class="text-slate-300 mb-6">
-                            Not ready for a full custom setup yet? Download our free blueprint to discover the exact automated workflows that top wellness practitioners use to capture leads and save hours of administrative work.
-                        </p>
-                        <ul class="space-y-3 mb-8 text-sm text-slate-400">
-                            <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-gold-500 mt-0.5"></i> The "Instant Nurture" sequence that warms up cold leads.</li>
-                            <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-gold-500 mt-0.5"></i> The exact prompt framework to make AI sound empathetic.</li>
-                            <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-gold-500 mt-0.5"></i> How to automate 5-star review collection effortlessly.</li>
-                        </ul>
-                        
-                        <!-- Simple Optin Form -->
-                        <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('Success! Check your inbox for the blueprint.');">
-                            <input type="email" placeholder="Enter your best email..." required class="px-4 py-3 bg-mystic-950 border border-mystic-700 rounded-lg text-white focus:outline-none focus:border-gold-500 w-full sm:w-auto flex-grow">
-                            <button type="submit" class="px-6 py-3 bg-mystic-800 hover:bg-mystic-700 text-white font-semibold rounded-lg transition-colors border border-mystic-600 whitespace-nowrap">
-                                Send Me The Blueprint
-                            </button>
-                        </form>
-                    </div>
-                    <div class="flex justify-center lg:justify-end">
-                        <div class="w-64 h-80 bg-mystic-950 border-2 border-mystic-700 rounded-lg shadow-2xl relative p-6 flex flex-col justify-between transform rotate-3 hover:rotate-0 transition-transform">
-                            <div class="w-full h-2 bg-gold-500 absolute top-0 left-0 rounded-t-lg"></div>
-                            <div>
-                                <i class="ph-fill ph-file-pdf text-4xl text-mystic-500 mb-4"></i>
-                                <h4 class="font-bold text-white text-xl">The Digital Sanctuary Blueprint</h4>
-                                <p class="text-xs text-slate-500 mt-2">Step-by-step setup guide</p>
-                            </div>
-                            <div class="w-full h-8 bg-mystic-800 rounded mt-4 flex items-center justify-center">
-                                <span class="text-xs text-slate-400">PDF Download</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA (The Direct Pitch) -->
-        <section id="contact" class="py-24 bg-mystic-950 border-t border-mystic-800 text-center">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Ready to Automate Your Digital Temple?</h2>
-                <p class="text-slate-400 mb-10 text-lg">
-                    Book a free, zero-pressure strategy session today. We'll show you exactly how our AI Workforce can be customized for 2 Witnesses Jewel Temple.
+        <!-- CTA Section -->
+        <section id="contact" class="py-24 bg-temple-white border-t gold-border">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-temple-black mb-6">Implement Your AI Workforce Today</h2>
+                <p class="text-temple-darkgray mb-10 text-lg">
+                    Contact us to set up your Custom AI Employees and start turning every lead into a lasting connection.
                 </p>
-                <form class="max-w-md mx-auto space-y-4 text-left" onsubmit="event.preventDefault(); alert('Call requested! We will be in touch shortly.');">
+                <form class="max-w-md mx-auto space-y-4 text-left" onsubmit="event.preventDefault(); alert('Request sent! We will contact you soon.');">
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">Name</label>
-                        <input type="text" required class="w-full px-4 py-3 bg-mystic-900 border border-mystic-700 rounded-lg text-white focus:outline-none focus:border-action-500">
+                        <label class="block text-sm font-bold uppercase tracking-wider text-temple-black mb-1">Name</label>
+                        <input type="text" required class="w-full px-4 py-3 bg-temple-gray border border-gray-300 rounded-none text-temple-black focus:outline-none focus:border-temple-gold focus:ring-1 focus:ring-temple-gold">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                        <input type="email" required class="w-full px-4 py-3 bg-mystic-900 border border-mystic-700 rounded-lg text-white focus:outline-none focus:border-action-500">
+                        <label class="block text-sm font-bold uppercase tracking-wider text-temple-black mb-1">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 bg-temple-gray border border-gray-300 rounded-none text-temple-black focus:outline-none focus:border-temple-gold focus:ring-1 focus:ring-temple-gold">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">What is your biggest bottleneck right now?</label>
-                        <select required class="w-full px-4 py-3 bg-mystic-900 border border-mystic-700 rounded-lg text-white focus:outline-none focus:border-action-500 appearance-none">
-                            <option value="" disabled selected>Select an option...</option>
-                            <option>Following up with leads</option>
-                            <option>Booking appointments</option>
-                            <option>Managing reviews & reputation</option>
-                            <option>Creating social content</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full mt-4 px-8 py-4 bg-action-500 hover:bg-action-600 text-white font-bold rounded-lg text-lg transition-all shadow-lg shadow-action-500/30">
-                        Schedule My Strategy Session
+                    <button type="submit" class="w-full mt-4 px-8 py-4 bg-temple-black hover:bg-temple-gold text-temple-white font-bold uppercase tracking-wider transition-colors border border-temple-black hover:border-temple-gold">
+                        Request Setup Info
                     </button>
-                    <p class="text-xs text-slate-500 text-center mt-4">You'll receive an email within 24 hours to pick a time on our calendar.</p>
                 </form>
             </div>
         </section>
@@ -465,13 +428,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-mystic-800 bg-mystic-950 py-12">
+    <footer class="bg-temple-black border-t border-temple-gold/50 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center items-center gap-3 mb-6">
-                <i class="ph-fill ph-diamond text-gold-500 text-2xl"></i>
-                <span class="font-serif text-white tracking-wider font-semibold">AI FOR TEMPLES</span>
+                <i class="ph-fill ph-diamond text-temple-gold text-2xl"></i>
+                <span class="font-serif text-temple-white tracking-widest font-bold uppercase">2 Witnesses Jewel Temple</span>
             </div>
-            <p class="text-sm text-slate-500">Empowering esoteric wisdom and wellness with intelligent automation.</p>
+            <p class="text-sm text-gray-400">&copy; 2024 2 Witnesses Jewel Temple. AI Workforce Solutions.</p>
         </div>
     </footer>
 
